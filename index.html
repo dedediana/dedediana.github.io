@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TWD Responsive Layout</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<div class="menu-atas">
+		<div class="topnav" id="myTopnav">
+		  <a href="#home" class="active">Home</a>
+		  <a href="#news">News</a>
+		  <a href="#contact">Contact</a>
+		  <a href="#about">About</a>
+		  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+		</div>
+
+		
+		<script>
+		function myFunction() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+				x.className += " responsive";
+			} else {
+				x.className = "topnav";
+			}
+		}
+		</script>
+	</div> <!--menu-atas-->
+	
+	
+<div class="container">
+	
+	<div class="header">
+		<h1>Travlendar</h1>
+		<strong>Be Better</strong> --- <small><a href="#">Make Your Plan</a></small>
+	</div> <!--/ .header -->
+
+	<div class="main">
+		
+		
+
+	</div> <!--/ .main -->
+ 
+</div> <!--container-->
+
+
+
+<div class="induk1">
+
+	<div class="container-t">
+	<div class="tab">
+			  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">Add New Event</button>
+			  <button class="tablinks" onclick="openCity(event, 'Paris')">View List Event</button>
+			  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Calendar Event</button>
+			  
+			  <input class="search-ev" type="text" placeholder="Search Event ... "/>
+	</div>
+	</div> <!--container-t-->
+
+</div> <!--induk1-->
+
+<div class="induk2">
+
+	<div class="container">
+
+		<div id="London" class="tabcontent">
+		  <input class="ev-name" type="text" placeholder="What Your Event ??.. "/>
+
+			<div class="main">
+				<div class="left">
+					<input class="ev" type="text" placeholder="Origin ...">
+					<div class="text-ev"> Start Event </div>
+					<input class="tgl-ev" id="date" type="date" name="" value="2017-09-08">
+					<input class="time-ev" id="time" type="time" value="00:00"/>
+				</div>
+				
+				
+				<div class="right">
+					<input class="ev"type="text" placeholder="Destination ...">
+					<div class="text-ev"> End Event </div>
+					<input class="tgl-ev" id="date" type="date" name="" value="2017-09-08">
+					<input class="time-ev" id="time" type="time" value="00:00"/>
+				</div>
+				
+			</div> <!--/ .main -->
+		</div>
+
+		<div id="Paris" class="tabcontent">
+		  <h3>List My Event</h3>
+		  <p></p> 
+		</div>
+
+		<div id="Tokyo" class="tabcontent">
+		  <h3>Tokyo</h3>
+		  <p>Tokyo is the capital of Japan.</p>
+		</div>
+
+		<script>
+		function openCity(evt, cityName) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(cityName).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+		</script>
+	</div> <!--container-->
+
+	<div class="i-save">
+		<button class="save-ev"> Save Event </button>
+	</div> <!--i-save-->
+	
+</div> <!--induk2-->
+
+
+
+<div class="container">
+	<div class="main">
+		
+		<div id="map">
+		</div>
+		
+    <!-- Google Maps JS API -->
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <!-- GMaps Library -->
+    <script src="gmaps.js"></script>
+    <script>
+		var mapObj = new GMaps({
+		  el: '#map',
+		  lat: -6.917464,
+		  lng: 107.619123
+		});
+		var m = mapObj.addMarker({
+		  lat: -6.917464,
+		  lng: 107.619123,
+		  title: 'Eiffel Tower',
+		  infoWindow: {
+			content: '<h4>Eiffel Tower</h4><div>Paris, France</div>',
+			maxWidth: 100
+		  }
+		});
+		mapObj.addMarker({
+		  lat: -6.917464,
+		  lng: 107.619123,
+		  mouseover: function(e) {
+			alert('Triggered');
+		  }
+		});
+	</script>
+	
+
+	</div> <!--/ .main -->
+ 
+</div> <!--container-->
+
+
+<div class="induk-footer">
+	<div class="footer">
+		<h4>Footer</h4>
+		<p>Copyright &copy; 2015 <a href="http://www.tutorial-webdesign.com">Tutorial-webdesign.com</a></p>
+	</div> <!--/ .footer -->
+</div> <!--induk-footer-->
+
+</body>
+</html>
